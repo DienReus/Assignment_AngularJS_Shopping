@@ -1,0 +1,46 @@
+<div id="layoutSidenav">
+
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4">Detail Product</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a routerLink="/admin/dashboard">Admin</a></li>
+                    <li class="breadcrumb-item active">Detail Product</li>
+                </ol>
+                <div class="container">
+                    <div class="row" *ngIf="product">
+                        <div ngClass="col-lg-4 col-md-4 mb-3">
+                            <div class="card h-100">
+                                <a href="#"><img class="card-img-top" src="{{product.img}}" height="310px" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                    </h4>
+                                    <div class="product-info">
+                                        <div class="product-info-cust">
+                                            Price
+                                        </div>
+                                        <div class="product-info-price">
+                                            &#36; {{product.price}}
+                                        </div>
+                                        <div class="clear"> </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div ngClass="col-lg-4 col-md-4 mb-3">
+                            <h4 class="card-title">
+                                {{product.name}}
+                            </h4>
+                            <p>{{product.desc}}</p><br>
+                            <a routerLink="/admin/manager"><button class="btn btn-info">Back</button></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+</div>

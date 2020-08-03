@@ -1,0 +1,69 @@
+<div id="layoutSidenav">
+
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid">
+                <h1 class="mt-4">Tables</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a routerLink="/admin/dashboard">Admin</a></li>
+                    <li class="breadcrumb-item active">Manager</li>
+                </ol>
+
+                <div class="card mb-4">
+                    <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable Example</div><br>
+
+                    <div class="input-group">
+                        <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" (input)="Search()" aria-describedby="basic-addon2" [(ngModel)]="name" /><br/>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr class="table-dark">
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Desc</th>
+                                        <th>Image</th>
+                                        <th colspan="3">Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ">
+                                        <th>{{product.id}}</th>
+                                        <th>{{product.name}}</th>
+                                        <th>{{product.price}}$</th>
+                                        <th>{{product.desc}}</th>
+                                        <th><img src="{{product.img}}" width="300px" height="150px"></th>
+                                        <th> <button class="btn btn-primary" routerLink="/admin/product/detail/{{product.id}}">Detail</button>
+                                        </th>
+                                        <th> <button class="btn btn-primary" routerLink="/admin/product/edit/{{product.id}}">Edit</button>
+                                        </th>
+                                        <th><button class="btn btn-primary" (click)="removeItem(product.id)">Delete</button>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+        <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                    <div>
+                        <a href="#">Privacy Policy</a> &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
